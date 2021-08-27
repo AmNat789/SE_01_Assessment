@@ -1,9 +1,11 @@
 import copy
 
-board = [[15,2,1,12],
-         [8,5,6,11],
-         [4,9,10,7],
-         [3,14,13,0]]
+initial_board = [[1, 2, 0],
+                 [4, 5, 3],
+                 [7, 8, 6]]
+
+board = copy.deepcopy(initial_board)
+
 
 def display_board():
     for row in board:
@@ -52,20 +54,34 @@ def check_win():
 
 
 if __name__ == '__main__':
+    attempts = 3
+    moves_record = []
+    moves = 0
 
-    while check_win():
-        display_board()
+    while attempts > 0:
 
-        gap_row, gap_col = find_gap()
+        while check_win():
+            display_board()
 
-        pos = input("Type the position of the tile you want to move.")
-        pos_row, pos_col = pos.split(",")
-        row = int(pos_row)
-        col = int(pos_col)
+            gap_row, gap_col = find_gap()
 
-        if check_move(row, col, gap_row, gap_col):
-            do_move(row, col, gap_row, gap_col)
-        else:
-            print("This move won't work... please choose another tile to move")
+            pos = input("Type the position of the tile you want to move.")
+            pos_row, pos_col = pos.split(",")
+            row = int(pos_row)
+            col = int(pos_col)
 
-    print("You Won!!! Congrats")
+            if check_move(row, col, gap_row, gap_col):
+                do_move(row, col, gap_row, gap_col)
+            else:
+                print("This move won't work... please choose another tile to move")
+
+            moves += 1
+
+        attempts -= 1
+        print("You won in ", moves, " moves. You have ", attempts, "attempts remaining")
+        moves_record.append(moves)
+        moves = 0
+        board = copy.deepcopy(initial_board)
+
+    moves_record.sort()
+    print("Congrats! Your high-score was ", moves_record[0], " moves")
