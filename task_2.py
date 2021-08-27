@@ -4,10 +4,6 @@ board = [[1, 8, 2],
          [4, 3, 5],
          [7, 6, 0]]
 
-winning_board = [[1, 2, 3],
-                 [4, 5, 6],
-                 [7, 8, 0]]
-
 def display_board():
     for row in board:
         print(row)
@@ -40,9 +36,23 @@ def do_move(row, col, gap_row, gap_col):
     board = temp_board
 
 
+def check_win():
+    current_num = 0
+
+    for i in board:
+        for value in i:
+            if value == 0:
+                continue
+            if value == current_num + 1:
+                current_num = value
+            else:
+                return True
+    return False
+
+
 if __name__ == '__main__':
 
-    while board != winning_board:
+    while check_win():
         display_board()
 
         gap_row, gap_col = find_gap()
