@@ -8,8 +8,6 @@ winning_board = [[1, 2, 3],
                  [4, 5, 6],
                  [7, 8, 0]]
 
-
-# Press the green button in the gutter to run the script.
 def display_board():
     for row in board:
         print(row)
