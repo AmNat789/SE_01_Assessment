@@ -1,6 +1,6 @@
 # SE_01_Assessment
 
-####This python project was written in Python 3.9.6. Using other versions may not work as intended
+##This python project was written in Python 3.9.6. Using other versions may not work as intended
 
 This repository stores three versions of the **Sliding Puzzles Game**, 
 at varying levels of complexity, based on the tasks assigned for the SE_01 Assessment
