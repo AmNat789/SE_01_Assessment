@@ -14,7 +14,7 @@ To run any of these files, type the following command into the terminal.
 > python FILE_NAME
 ```
 
-For example, for **task_1.py**, write the foillowing on the console
+For example, for **task_1.py**, write the following on the console
 ```shell
 > python task_1.py
 ```
